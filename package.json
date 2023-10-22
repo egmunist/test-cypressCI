@@ -1,5 +1,20 @@
 {
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:staging": "cypress run --env environmentName=staging",
+    "cy:qa": "cypress run --env environmentName=qa",
+    "cy:prod": "cypress run --env environmentName=prod",
+    "cy:dev": "cypress run --env environmentName=dev",
+    "cy:devops": "cypress run --env environmentName=devops",
+    "cy:uat": "cypress run --env environmentName=uat"
+  },
   "dependencies": {
     "cypress": "^13.3.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "cypress-plugin-api": "^2.11.1",
+    "cypress-slack-notify": "^1.14.2"
   }
 }
