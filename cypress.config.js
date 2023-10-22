@@ -1,5 +1,5 @@
 const { defineConfig } = require('cypress');
-
+const cypressSplit = require('cypress-split')
 module.exports = defineConfig({
   
   e2e: {
@@ -14,6 +14,7 @@ module.exports = defineConfig({
 
 
     setupNodeEvents(on, config) {
+
       on('task', {
        
       })
@@ -31,10 +32,11 @@ module.exports = defineConfig({
         };
       }
       console.log('loaded settings for environment %s', environmentName);
-
-
+      
+      cypressSplit(on, config)
       return config;
 
     },
+    
   },
 });

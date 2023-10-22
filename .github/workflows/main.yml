@@ -1,0 +1,24 @@
+name: ci
+on: push
+jobs:
+  test-split:
+    runs-on: ubuntu-22.04
+    # use two containers to run the tests
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2]
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v4
+
+      - name: Run split Cypress tests 🧪
+        # https://github.com/cypress-io/github-action
+        uses: cypress-io/github-action@v6
+        with:
+          # we don't need Cypress own runner summary
+          publish-summary: false
+        env:
+          SPLIT: ${{ strategy.job-total }}
+          SPLIT_INDEX: ${{ strategy.job-index }}
+          SPLIT_FILE: 'timings.json'

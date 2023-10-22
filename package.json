@@ -15,6 +15,7 @@
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
     "cypress-plugin-api": "^2.11.1",
-    "cypress-slack-notify": "^1.14.2"
+    "cypress-slack-notify": "^1.14.2",
+    "cypress-split": "^1.15.3"
   }
 }
