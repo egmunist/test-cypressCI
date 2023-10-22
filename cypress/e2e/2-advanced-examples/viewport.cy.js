@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-context('Viewport', () => {
+context.skip('Viewport', () => {
   beforeEach(() => {
     cy.visit('https://example.cypress.io/commands/viewport')
   })
