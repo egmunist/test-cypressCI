@@ -1,5 +1,5 @@
 name: ci
-on: push
+on: schedule
 jobs:
   test-split:
     runs-on: ubuntu-22.04
@@ -16,6 +16,9 @@ jobs:
         # https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v6
         with:
+          command: npx cypress run --env environmentName=qa --spec 'cypress/e2e/*.cy.js'
+          browser: chrome
+          record: false
           # we don't need Cypress own runner summary
           publish-summary: false
         env:
